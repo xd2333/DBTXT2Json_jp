@@ -2,8 +2,9 @@
 通用双行文本与json_jp互转脚本
 
 
-双行文本，是一种翻译常用文本格式
-json_jp，是GalTransl接受的输入格式
+* 双行文本：是一种翻译常用文本格式
+
+* json_jp：是GalTransl接受的输入格式
 
 双行文本例：
 
@@ -37,9 +38,8 @@ file_encoding = "utf-8"
 
 2. 运行01_dump_nametable.py，获得nametable.txt
 
-nametable.txt格式为<名字><TAB><出现次数>
-
-凭感觉删掉不是人名的行
+    nametable.txt格式为<名字><TAB><出现次数>   
+    **凭感觉删掉不是人名的行**
 
 3. 运行02_txt_jp2json_jp.py提取json_jp
 
