@@ -38,7 +38,7 @@ file_encoding = "utf-8"
 
 2. 运行01_dump_nametable.py，获得nametable.txt
 
-    nametable.txt格式为<名字><TAB><出现次数>   
+    nametable.txt格式为<名字>[TAB]<出现次数>   
     **凭感觉删掉不是人名的行**
 
 3. 运行02_txt_jp2json_jp.py提取json_jp
