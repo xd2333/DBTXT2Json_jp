@@ -9,7 +9,7 @@ with open("nametable.txt", "r", encoding=file_encoding) as f:
 
 for line in lines:
     line = line.strip()
-    name, count = line.split("\t")
+    name = line.split("\t")[0]
     name_list.append(name)
 
 for file_name in os.listdir("txt_jp"):
