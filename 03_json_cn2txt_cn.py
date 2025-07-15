@@ -3,7 +3,10 @@ import json
 from settings import *
 
 name_table = {}
-message_table = {}
+
+src_msg_list=[]
+dst_msg_list=[]
+
 
 for file_name in os.listdir("txt_jp"):
     print(file_name)
@@ -20,7 +23,8 @@ for file_name in os.listdir("txt_jp"):
             jp_name = obj["name"]
             cn_name = json_cn[i]["name"]
             name_table[jp_name] = cn_name
-        message_table[obj["message"]] = json_cn[i]["message"]
+        src_msg_list.append(obj["message"])
+        dst_msg_list.append(json_cn[i]["message"])
 
     result_list = []
     with open(file_path_txt_jp, "r", encoding=file_encoding) as f:
@@ -41,12 +45,17 @@ for file_name in os.listdir("txt_jp"):
             continue
 
         tmp_text = ""
-        if message in message_table:
-            tmp_text = label + message_table[message] + "\n"
+        if message in src_msg_list:
+            index=src_msg_list.index(message)
+            tmp_text = label + dst_msg_list[index] + "\n"
+            src_msg_list.pop(index)
+            dst_msg_list.pop(index)
         elif message in name_table:
             tmp_text = label + name_table[message] + "\n"
         else:
             tmp_text = line + "\n"
+            print(f"not found {message}")
+
         result_list.append(tmp_text)
 
     with open(file_path_txt_cn, "w", encoding=file_encoding) as f:
