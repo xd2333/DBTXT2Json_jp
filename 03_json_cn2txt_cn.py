@@ -29,6 +29,7 @@ for file_name in os.listdir("txt_jp"):
     result_list = []
     with open(file_path_txt_jp, "r", encoding=file_encoding) as f:
         text_lines = f.readlines()
+    os.makedirs("txt_cn", exist_ok=True)
     for line in text_lines:
         if not line.startswith(译文标签头部特征):
             result_list.append(line)
